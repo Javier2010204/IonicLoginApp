@@ -1,0 +1,32 @@
+<!--
+  Generated template for the AddUserPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Mis datos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+    <ion-img width="100" height="100" [src]="user.photoUrl" *ngIf="user && user.photoUrl"></ion-img>
+    <ion-fab>
+      <input type="file" id="photo" accept=".png,.jpg" (change)="fileChange($event)">
+    </ion-fab>
+    <ion-img width="100" height="100" [src]="img" *ngIf="user && user.photoUrl"></ion-img>
+    <ion-item>
+      <ion-label>{{user.email}}</ion-label>
+    </ion-item>
+  <form (ngSubmit)="createAccont()" [formGroup]="createAccountForm">
+    <ion-list inset>
+      <ion-item>
+        <ion-label>Nombre</ion-label>
+        <ion-input type="text" placeholder="nombre" formControlName="name"></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button block type="submit">Guardar</button>
+  </form>
+</ion-content>
